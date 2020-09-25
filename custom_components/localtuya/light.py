@@ -15,6 +15,7 @@ from homeassistant.components.light import (
     ATTR_COLOR_TEMP,
     ATTR_HS_COLOR,
     SUPPORT_BRIGHTNESS,
+    SUPPORT_COLOR_TEMP,
     SUPPORT_COLOR,
 )
 
@@ -105,7 +106,7 @@ class LocaltuyaLight(LocalTuyaEntity, LightEntity):
         """Flag supported features."""
         supports = SUPPORT_BRIGHTNESS
         if self._color_temp is not None:
-            supports = supports | SUPPORT_COLOR
+            supports = supports | SUPPORT_COLOR_TEMP
         return supports
 
     def turn_on(self, **kwargs):
